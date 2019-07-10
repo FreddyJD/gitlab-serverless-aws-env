@@ -1,0 +1,29 @@
+{
+  "name": "gitlab-serverless-aws-env",
+  "version": "1.0.0",
+  "description": "a-serverless-env",
+  "main": "handler.js",
+  "scripts": {
+    "test": "sls invoke test",
+    "start": "sls offline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreddyJD/gitlab-serverless-aws-env.git"
+  },
+  "author": "FreddyJD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FreddyJD/gitlab-serverless-aws-env/issues"
+  },
+  "homepage": "https://github.com/FreddyJD/gitlab-serverless-aws-env#readme",
+  "dependencies": {
+    "serverless": "1.47.0"
+  },
+  "devDependencies": {
+    "serverless-dotenv-plugin": "2.1.1",
+    "serverless-mocha-plugin": "1.10.0",
+    "serverless-offline": "5.7.2",
+    "serverless-plugin-canary-deployments": "0.4.7"
+  }
+}

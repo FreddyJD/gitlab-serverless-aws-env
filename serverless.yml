@@ -1,0 +1,48 @@
+service: aws-nodejs
+frameworkVersion: "=1.47.0"
+
+
+plugins:
+  - serverless-offline
+  - serverless-mocha-plugin
+  - serverless-dotenv-plugin
+  # - serverless-plugin-canary-deployments
+
+provider:
+  name: aws
+  runtime: nodejs8.16.0
+  stage: ${env:STAGE}
+  region: ${env:AWS_REGION}
+
+
+custom:
+  # serverless-mocha-plugin:
+  #   preTestCommands: 
+  #     - bash mocha-start-server.sh
+  #   postTestCommands:
+  #     - bash mocha-stop-server.sh
+  serverless-offline:
+    port: ${env:DEV_PORT}
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# package:
+#  exclude:
+#    - mocha-start-server.sh
+#    - mocha-stop-server.sh
+#    - test/**
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+         path: users/create
+         method: get
+#      - schedule: rate(10 minutes)
+#      - sns: greeter-topic
+#      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx
+#      - alexaSmartHome: amzn1.ask.skill.xx-xx-xx-xx
+#      - cloudwatchLog: '/aws/lambda/hello'
